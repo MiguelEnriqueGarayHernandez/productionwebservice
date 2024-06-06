@@ -11,7 +11,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/productreviews")
 public class ProductReviewController {
-
     @Autowired
     private ProductReviewService productReviewService;
 
@@ -33,6 +32,11 @@ public class ProductReviewController {
     @PostMapping
     public ProductReviewDTO createReview(@RequestBody ProductReviewDTO reviewDTO) {
         return productReviewService.create(reviewDTO);
+    }
+
+    @PutMapping("/{reviewId}")
+    public ProductReviewDTO updateReview(@PathVariable int reviewId, @RequestBody ProductReviewDTO reviewDTO) {
+        return productReviewService.update(reviewId, reviewDTO);
     }
 
     @DeleteMapping("/{reviewId}")

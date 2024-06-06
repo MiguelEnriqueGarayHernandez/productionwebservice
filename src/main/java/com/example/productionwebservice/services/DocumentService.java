@@ -36,6 +36,17 @@ public class DocumentService {
         return convertToDTO(savedDocument);
     }
 
+    public DocumentDTO update(String documentNode, DocumentDTO documentDTO) {
+        Optional<Document> existingDocument = documentRepository.findByDocumentNode(documentNode);
+        if (existingDocument.isPresent()) {
+            Document documentToUpdate = existingDocument.get();
+            modelMapper.map(documentDTO, documentToUpdate);
+            Document updatedDocument = documentRepository.save(documentToUpdate);
+            return convertToDTO(updatedDocument);
+        }
+        return null;
+    }
+
     public void delete(String documentNode) {
         documentRepository.deleteById(documentNode);
     }

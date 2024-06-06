@@ -10,6 +10,4 @@ import com.example.productionwebservice.entities.Document;
 @Repository
 public interface DocumentRepository extends JpaRepository<Document, String> {
     Optional<Document> findByDocumentNode(String documentNode);
-
-    
 }

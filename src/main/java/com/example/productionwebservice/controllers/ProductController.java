@@ -22,15 +22,22 @@ public class ProductController {
     }
 
     @GetMapping("/{productId}")
-    public ResponseEntity<Product> getProductById(@PathVariable int productId) {
+    public ResponseEntity<ProductDTO> getProductById(@PathVariable int productId) {
         Optional<Product> product = productService.getProductById(productId);
-        return product.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        return product.map(p -> ResponseEntity.ok(productService.convertToDto(p)))
+                      .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping("")
     public ResponseEntity<ProductDTO> createProduct(@RequestBody ProductDTO productDTO) {
         ProductDTO createdProduct = productService.create(productDTO);
         return ResponseEntity.ok(createdProduct);
+    }
+
+    @PutMapping("/{productId}")
+    public ResponseEntity<ProductDTO> updateProduct(@PathVariable int productId, @RequestBody ProductDTO productDTO) {
+        ProductDTO updatedProduct = productService.update(productId, productDTO);
+        return updatedProduct != null ? ResponseEntity.ok(updatedProduct) : ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/{productId}")

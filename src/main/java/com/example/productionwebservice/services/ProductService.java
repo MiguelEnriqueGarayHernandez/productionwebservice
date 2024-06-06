@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 
 @Service
 public class ProductService {
-
     @Autowired
     private ProductRepository productRepository;
 
@@ -37,11 +36,22 @@ public class ProductService {
         return convertToDto(savedProduct);
     }
 
+    public ProductDTO update(int productId, ProductDTO productDTO) {
+        Optional<Product> existingProduct = productRepository.findByProductId(productId);
+        if (existingProduct.isPresent()) {
+            Product productToUpdate = existingProduct.get();
+            modelMapper.map(productDTO, productToUpdate);
+            Product updatedProduct = productRepository.save(productToUpdate);
+            return convertToDto(updatedProduct);
+        }
+        return null;
+    }
+
     public void delete(int productId) {
         productRepository.deleteById(productId);
     }
 
-    private ProductDTO convertToDto(Product product) {
+    public ProductDTO convertToDto(Product product) {
         return modelMapper.map(product, ProductDTO.class);
     }
 }

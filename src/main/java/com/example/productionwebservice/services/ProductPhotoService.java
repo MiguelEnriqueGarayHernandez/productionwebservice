@@ -37,6 +37,17 @@ public class ProductPhotoService {
         return convertToDTO(savedProductPhoto);
     }
 
+    public ProductPhotoDTO update(int productPhotoId, ProductPhotoDTO productPhotoDTO) {
+        Optional<ProductPhoto> existingProductPhoto = productPhotoRepository.findById(productPhotoId);
+        if (existingProductPhoto.isPresent()) {
+            ProductPhoto productPhotoToUpdate = existingProductPhoto.get();
+            modelMapper.map(productPhotoDTO, productPhotoToUpdate);
+            ProductPhoto updatedProductPhoto = productPhotoRepository.save(productPhotoToUpdate);
+            return convertToDTO(updatedProductPhoto);
+        }
+        return null;
+    }
+
     public void delete(int productPhotoId) {
         productPhotoRepository.deleteById(productPhotoId);
     }

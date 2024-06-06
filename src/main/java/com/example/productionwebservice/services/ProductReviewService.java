@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 
 @Service
 public class ProductReviewService {
-
     @Autowired
     private ProductReviewRepository productReviewRepository;
 
@@ -50,6 +49,18 @@ public class ProductReviewService {
             productReview.setProduct(product.get());
             ProductReview savedProductReview = productReviewRepository.save(productReview);
             return convertToDTO(savedProductReview);
+        }
+        return null;
+    }
+
+    public ProductReviewDTO update(int reviewId, ProductReviewDTO dto) {
+        Optional<ProductReview> existingReview = productReviewRepository.findById(reviewId);
+        if (existingReview.isPresent()) {
+            ProductReview reviewToUpdate = existingReview.get();
+            modelMapper.map(dto, reviewToUpdate);
+            reviewToUpdate.setProduct(productRepository.findById(dto.getProductId()).orElse(null));
+            ProductReview updatedReview = productReviewRepository.save(reviewToUpdate);
+            return convertToDTO(updatedReview);
         }
         return null;
     }

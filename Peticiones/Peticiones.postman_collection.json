@@ -1,0 +1,212 @@
+{
+	"info": {
+		"_postman_id": "0e4bc70f-2a60-4dd0-830b-082523bf85c5",
+		"name": "ProductionWebService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24966493"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Documents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/documents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"documents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProductPhotos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/productphotos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productphotos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProductReviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/productreviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productreviews"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PUT",
+			"item": [
+				{
+					"name": "Products",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"productId\": 1,\r\n        \"name\": \"Modificado\",\r\n        \"productNumber\": \"AR-5381\",\r\n        \"makeFlag\": false,\r\n        \"finishedGoodsFlag\": false,\r\n        \"color\": null,\r\n        \"safetyStockLevel\": 1000,\r\n        \"reorderPoint\": 750,\r\n        \"standardCost\": 0.0000,\r\n        \"listPrice\": 0.0000,\r\n        \"size\": null,\r\n        \"sizeUnitMeasureCode\": null,\r\n        \"weightUnitMeasureCode\": null,\r\n        \"weight\": null,\r\n        \"daysToManufacture\": 0,\r\n        \"productLine\": null,\r\n        \"clazz\": null,\r\n        \"style\": null,\r\n        \"productSubcategoryId\": null,\r\n        \"productModelId\": null,\r\n        \"sellStartDate\": \"2008-04-30T00:00:00\",\r\n        \"sellEndDate\": null,\r\n        \"discontinuedDate\": null,\r\n        \"rowguid\": \"694215b7-08f7-4c0d-acb1-d734ba44c0c8\",\r\n        \"modifiedDate\": \"2014-02-08T10:01:36.827\"\r\n    },",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/products/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Documents",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"documentNode\": \"0x5B40\",\r\n    \"documentLevel\": 2,\r\n    \"title\": \"Modificado\",\r\n    \"folderFlag\": false,\r\n    \"fileName\": \"Modificado.doc\",\r\n    \"fileExtension\": \"doc\",\r\n    \"revision\": \"v2.0\",\r\n    \"changeNumber\": 3,\r\n    \"status\": 1,\r\n    \"documentSummary\": \"Este documento ha sido modificado\",\r\n    \"document\": \"U29tZSB1cGRhdGVkIGNvbnRlbnQ=\",\r\n    \"rowguid\": \"123e4567-e89b-12d3-a456-426614174000\",\r\n    \"modifiedDate\": \"2024-06-05T15:26:31\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/documents/0x5B40",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"documents",
+								"0x5B40"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProductPhotos",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productPhotoId\": 1,\r\n    \"thumbNailPhoto\": \"R0lGODlhUAAxAPcAAAAAAIAAAACAAICAAAAAgIAAgACAgICAgMDAwP8AAAD/AP//AAAA//8A/wD//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMwAAZgAAmQAAzAAA/wAzAAAzMwAzZgAzmQAzzAAz/wBmAABmMwBmZgBmmQBmzABm/wCZAACZMwCZZgCZmQCZzACZ/wDMAADMMwDMZgDMmQDMzADM/wD/AAD/MwD/ZgD/mQD/zAD//zMAADMAMzMAZjMAmTMAzDMA/zMzADMzMzMzZjMzmTMzzDMz/zNmADNmMzNmZjNmmTNmzDNm/zOZADOZMzOZZjOZmTOZzDOZ/zPMADPMMzPMZjPMmTPMzDPM/zP/ADP/MzP/ZjP/mTP/zDP//2YAAGYAM2YAZmYAmWYAzGYA/2YzAGYzM2YzZmYzmWYzzGYz/2ZmAGZmM2ZmZmZmmWZmzGZm/2aZAGaZM2aZZmaZmWaZzGaZ/2bMAGbMM2bMZmbMmWbMzGbM/2b/AGb/M2b/Zmb/mWb/zGb//5kAAJkAM5kAZpkAmZkAzJkA/5kzAJkzM5kzZpkzmZkzzJkz/5lmAJlmM5lmZplmmZlmzJlm/5mZAJmZM5mZZpmZmZmZzJmZ/5nMAJnMM5nMZpnMmZnMzJnM/5n/AJn/M5n/Zpn/mZn/zJn//8wAAMwAM8wAZswAmcwAzMwA/8wzAMwzM8wzZswzmcwzzMwz/8xmAMxmM8xmZsxmmcxmzMxm/8yZAMyZM8yZZsyZmcyZzMyZ/8zMAMzMM8zMZszMmczMzMzM/8z/AMz/M8z/Zsz/mcz/zMz///8AAP8AM/8AZv8Amf8AzP8A//8zAP8zM/8zZv8zmf8zzP8z//9mAP9mM/9mZv9mmf9mzP9m//+ZAP+ZM/+ZZv+Zmf+ZzP+Z///MAP/MM//MZv/Mmf/MzP/M////AP//M///Zv//mf//zP///yH5BAEAABAALAAAAABQADEAAAj/AP8JHEiwoMGDCBMqXMiwocOHECNKnEixosWLGDNq3Mixo8ePIEOKHEmypMmTKFOqXJkRBYqBLhfGZPnQ5ct/MxPmpMnQpsCZNm/CfBnTZ86gQ3HeRMoRadGlQpUqJfoUZ9KnVH9GxVhUKtCoVaWKnZrVK9SmVMPuVHvWrFisPjd+LbuW7tmvb8t6nJuXIFutfbH2lSt07ta/eeOy3clTYuGtjS8yjUy5suXLmDHHdRjWIGPGIjdDBA3YL2SQVY+mvQsVL16yqLOqfuyWtlHZbTv+nY176G67H38DTs068GrSkoMSN+62+fKQqrW2Xe6aem7CSaf6fq7ceevTmcOLEh9Pvrz58+jTq1/Pvr379+8DAgA7\",\r\n    \"thumbnailPhotoFileName\": \"no_image_available_small.gif\",\r\n    \"largePhoto\": \"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\",\r\n    \"largePhotoFileName\": \"modificado.gif\",\r\n    \"modifiedDate\": \"2008-04-30T00:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/productphotos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productphotos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProductReviews",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"productReviewId\": 1,\r\n        \"productId\": 709,\r\n        \"reviewerName\":\"Fulano de tal\",\r\n        \"reviewDate\": \"2013-09-18T00:00:00\",\r\n        \"emailAddress\":\"fulano@algo.com\",\r\n        \"rating\": 5,\r\n        \"comments\": \"Modificado\",\r\n        \"modifiedDate\": \"2013-09-18T00:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/productreviews/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productreviews",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

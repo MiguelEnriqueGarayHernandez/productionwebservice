@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -38,6 +39,16 @@ public class DocumentController {
     public ResponseEntity<DocumentDTO> createDocument(@RequestBody DocumentDTO documentDTO) {
         DocumentDTO createdDocument = documentService.create(documentDTO);
         return ResponseEntity.ok(createdDocument);
+    }
+
+    @PutMapping("/{documentNode}")
+    public ResponseEntity<DocumentDTO> updateDocument(@PathVariable String documentNode, @RequestBody DocumentDTO documentDTO) {
+        DocumentDTO updatedDocument = documentService.update(documentNode, documentDTO);
+        if (updatedDocument != null) {
+            return ResponseEntity.ok(updatedDocument);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @DeleteMapping("/{documentNode}")
